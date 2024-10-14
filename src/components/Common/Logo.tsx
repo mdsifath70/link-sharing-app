@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Logo() {
   return (
-    <div className="relative flex">
+    <div className="relative flex items-center justify-center">
       <Link href="/" className="inline-flex items-center gap-2">
         <span className="rounded-lg bg-primary px-1.5 py-1 text-primary-foreground">
           <LinkIcon className="h-6 w-6 rotate-45" />
