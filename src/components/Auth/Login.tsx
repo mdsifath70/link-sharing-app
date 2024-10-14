@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { responses } from "@/libs/api";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { z } from "zod";
@@ -29,7 +29,6 @@ const formSchema = z.object({
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -57,9 +56,7 @@ export default function Login() {
             toast.success("Logged in successfully");
             const callbackUrl = searchParams.get("callbackUrl");
             const redirectUrl = callbackUrl ? callbackUrl : "/";
-            setTimeout(() => {
-              router.replace(redirectUrl);
-            }, 300);
+            window.location.href = redirectUrl;
           }
         });
       } catch (error) {
