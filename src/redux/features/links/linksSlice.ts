@@ -47,7 +47,7 @@ const linksSlice = createSlice({
 
     removeLink: (state, action: PayloadAction<{ id: string }>) => {
       const { id } = action.payload;
-      state.links = state.links.filter((link) => link.id === id);
+      state.links = state.links.filter((link) => link.id !== id);
     },
 
     setError: (
