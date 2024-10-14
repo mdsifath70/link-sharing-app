@@ -1,0 +1,1 @@
+type MenuTabNames = "links" | "profileDetails";
