@@ -1,4 +1,5 @@
 import apiSlice from "../api/apiSlice";
+import profileApiSlice from "../profile/profileApiSlice";
 
 // type
 interface LinkItemTypeRes extends LinkItemType {
@@ -15,12 +16,29 @@ const linksApiSlice = apiSlice.injectEndpoints({
       query: () => "/links/all",
     }),
 
-    saveLinks: builder.mutation<ApiResponse, { links: LinkItemType[] }>({
+    saveLinks: builder.mutation<
+      ApiResponse<LinkItemTypeRes[]>,
+      { username: string; links: LinkItemType[] }
+    >({
       query: (body) => ({
         url: "/links/save",
         method: "POST",
         body,
       }),
+      onQueryStarted: async ({ username }, { queryFulfilled, dispatch }) => {
+        try {
+          const res = await queryFulfilled;
+          dispatch(
+            profileApiSlice.util.updateQueryData(
+              "profileLinks",
+              { username },
+              (draft) => {
+                draft.payload.links = res.data.payload;
+              },
+            ),
+          );
+        } catch {}
+      },
     }),
   }),
   overrideExisting: false,

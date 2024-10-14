@@ -9,13 +9,11 @@ import Link from "next/link";
 
 interface Props {
   profileLinks: ProfileLinks;
-  isFetching?: boolean;
   delayCountMax?: number;
 }
 
 export default function MobileViewContent({
   profileLinks,
-  isFetching,
   delayCountMax,
 }: Props) {
   const { profile, links = [] } = profileLinks || {};
@@ -25,7 +23,7 @@ export default function MobileViewContent({
   return (
     <div>
       <div className="mb-12 mt-8 flex flex-col items-center text-center sm:mb-16">
-        {!isFetching && image ? (
+        {image ? (
           <div className="relative mb-6 h-32 w-32 rounded-full border-[3px] border-primary">
             <Image
               src={image}
@@ -37,12 +35,12 @@ export default function MobileViewContent({
         ) : (
           <div className="mb-7 h-32 w-32 rounded-full bg-skeleton" />
         )}
-        {!isFetching && fullName ? (
+        {fullName ? (
           <h3 className="text-lg font-semibold text-dark">{fullName}</h3>
         ) : (
           <div className="h-5 w-52 rounded-lg bg-skeleton" />
         )}
-        {!isFetching && email ? (
+        {email ? (
           <h5 className="mt-3 text-sm">{email}</h5>
         ) : (
           <div className="mt-4 h-2.5 w-24 rounded-lg bg-skeleton" />
@@ -50,7 +48,7 @@ export default function MobileViewContent({
       </div>
 
       <div className="space-y-5 sm:space-y-6 sm:px-2">
-        {isFetching || links?.length === 0
+        {links?.length === 0
           ? [...Array(5)].map((_, i) => (
               <div key={i} className="h-[3rem] w-full rounded-md bg-skeleton" />
             ))

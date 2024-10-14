@@ -25,10 +25,12 @@ export async function POST(req: NextRequest) {
         ...link,
       })),
     });
+    const newLinks = await prisma.link.findMany({ where: { userId: user.id } });
 
     // response
     return responses.successNext({
       message: "Links saved successfully",
+      payload: newLinks,
     });
   } catch (error) {
     return responses.catchErrorNext(error);

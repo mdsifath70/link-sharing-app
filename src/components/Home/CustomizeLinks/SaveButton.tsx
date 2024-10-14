@@ -1,5 +1,6 @@
 "use client";
 
+import useUser from "@/hooks/auth/useUser";
 import { responses } from "@/libs/api";
 import { isValidUrl } from "@/libs/utils";
 import { useSaveLinksMutation } from "@/redux/features/links/linksApiSlice";
@@ -14,6 +15,7 @@ export default function SaveButton() {
   const { links } = useSelector((state: AppState) => state.links);
   const dispatch = useDispatch();
   const [saveLinks, { isLoading }] = useSaveLinksMutation();
+  const { user } = useUser();
 
   const handleSubmit = async () => {
     if (!isLoading) {
@@ -59,7 +61,7 @@ export default function SaveButton() {
         }
         // validations::End
 
-        const body = { links };
+        const body = { username: user!.username, links };
         const res = await saveLinks(body).unwrap();
         const { message } = res;
         toast.success(message);

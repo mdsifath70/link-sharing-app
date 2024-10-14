@@ -22,7 +22,7 @@ interface Props {
 export default function SaveButton({ form }: Props) {
   const { profile } = useSelector((state: AppState) => state.user);
   const [updateUser, { isLoading }] = useUpdateUserMutation();
-  const { session, updateSession } = useUser();
+  const { session, updateSession, user } = useUser();
 
   async function onSubmit() {
     if (!isLoading) {
@@ -42,7 +42,10 @@ export default function SaveButton({ form }: Props) {
           image: imageFile,
         };
         const formData = prepareFormData(body);
-        const res = await updateUser(formData).unwrap();
+        const res = await updateUser({
+          username: user!.username,
+          body: formData,
+        }).unwrap();
         const { message } = res;
         toast.success(message);
         // update user

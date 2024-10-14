@@ -6,7 +6,7 @@ export default function useProfileLinksData() {
   const username = params.username as string | null;
   const res = useProfileLinksQuery(
     { username: username! },
-    { skip: !username, refetchOnMountOrArgChange: true },
+    { skip: !username },
   );
   return res;
 }
