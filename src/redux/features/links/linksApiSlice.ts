@@ -29,6 +29,11 @@ const linksApiSlice = apiSlice.injectEndpoints({
         try {
           const res = await queryFulfilled;
           dispatch(
+            linksApiSlice.util.updateQueryData("links", undefined, (draft) => {
+              draft.payload = res.data.payload;
+            }),
+          );
+          dispatch(
             profileApiSlice.util.updateQueryData(
               "profileLinks",
               { username },
