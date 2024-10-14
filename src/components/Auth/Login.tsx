@@ -53,11 +53,13 @@ export default function Login() {
             setIsLoading(false);
           }
 
-          if (res?.ok && !res?.error) {
+          if (res?.ok) {
             toast.success("Logged in successfully");
             const callbackUrl = searchParams.get("callbackUrl");
             const redirectUrl = callbackUrl ? callbackUrl : "/";
-            router.push(redirectUrl);
+            setTimeout(() => {
+              router.replace(redirectUrl);
+            }, 300);
           }
         });
       } catch (error) {
