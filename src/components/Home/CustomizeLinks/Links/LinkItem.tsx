@@ -68,7 +68,7 @@ export default function LinkItem({ index, linkItem }: Props) {
   };
 
   return (
-    <div ref={setNodeRef} className="touch-none" style={style}>
+    <div ref={setNodeRef} style={style}>
       <div className="rounded-lg bg-background p-6">
         <div className="mb-4 flex items-center justify-between">
           <div className="flex items-center gap-1">
@@ -76,7 +76,7 @@ export default function LinkItem({ index, linkItem }: Props) {
               type="button"
               {...attributes}
               {...listeners}
-              className="cursor-grab"
+              className="cursor-grab touch-none"
             >
               <Equal />
             </button>

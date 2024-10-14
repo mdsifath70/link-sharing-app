@@ -13,10 +13,11 @@ import SaveButton from "./SaveButton";
 
 export default function ProfileDetails() {
   const { profile } = useSelector((state: AppState) => state.user);
+  const { email, username, firstName, lastName } = profile;
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: { ...profile },
+    defaultValues: { email, username, firstName, lastName },
   });
 
   return (

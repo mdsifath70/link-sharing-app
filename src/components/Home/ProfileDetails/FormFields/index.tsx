@@ -24,8 +24,10 @@ export default function FormFields({ form }: Props) {
   const dispatch = useDispatch();
 
   const handleChange = () => {
-    const values = form.getValues();
-    dispatch(userActions.handleChangeProfile(values));
+    const { email, username, firstName, lastName } = form.getValues();
+    dispatch(
+      userActions.handleChangeProfile({ email, username, firstName, lastName }),
+    );
   };
 
   return (

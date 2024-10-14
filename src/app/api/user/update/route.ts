@@ -1,10 +1,8 @@
 import { responses } from "@/libs/api";
 import { cloudinary } from "@/libs/api/cloudinary";
 import { isAuthorized } from "@/libs/auth";
-import fileUploadToLocal from "@/libs/fileUploadToLocal";
 import prisma from "@/libs/prisma";
 import { excludeProperties, formDataToObj } from "@/libs/utils";
-import { unlink } from "fs/promises";
 import { NextRequest } from "next/server";
 
 export async function PATCH(req: NextRequest) {
@@ -47,17 +45,11 @@ export async function PATCH(req: NextRequest) {
 
     if (image) {
       const imageFile = image as File;
-      const { url: uploadedUrl } = await fileUploadToLocal(imageFile);
-
-      const res = await cloudinary.uploadFile({
-        fileUrl: uploadedUrl,
+      const res = await cloudinary.uploadStream({
+        file: imageFile,
         folder: "sharing-app",
       });
       data.image = res?.url || "";
-
-      try {
-        await unlink(uploadedUrl);
-      } catch {}
     }
 
     // update user

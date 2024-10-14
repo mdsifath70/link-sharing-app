@@ -1,5 +1,6 @@
 "use client";
 
+import Logo from "@/components/Common/Logo";
 import Loader from "@/components/Loaders/Loader";
 import { Button } from "@/components/ui/button";
 import useUser from "@/hooks/auth/useUser";
@@ -24,11 +25,7 @@ export default function ActionsLeft() {
           </Button>
         </Link>
       ) : (
-        <Link href="/login">
-          <Button variant="outline" size="lg">
-            Log In
-          </Button>
-        </Link>
+        <Logo />
       )}
     </div>
   );
