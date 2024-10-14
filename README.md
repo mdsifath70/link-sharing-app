@@ -6,7 +6,9 @@ Link Sharing App
 
 `.env.local` and `.env` files is required, Please copy paste `.env.local.example` and `.env.example` files and rename
 
-For quick you can visit this [link](https://mdsifath70.notion.site/Link-Sharing-App-11f73be9627480f893a4f7a404d8b0d8) for [`Environment Variables`](https://mdsifath70.notion.site/Link-Sharing-App-11f73be9627480f893a4f7a404d8b0d8)
+Or
+
+You can visit this [link](https://mdsifath70.notion.site/Link-Sharing-App-11f73be9627480f893a4f7a404d8b0d8) for [`Environment Variables`](https://mdsifath70.notion.site/Link-Sharing-App-11f73be9627480f893a4f7a404d8b0d8)
 
 #### 2. Run Prisma command:
 
