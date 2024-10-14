@@ -52,10 +52,20 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ---
 
-#### For Production run this command:
+### For Production:
+
+#### 1. Run the build command:
 
 ```bash
 yarn build:prod
 # or
 npm run build:prod
+```
+
+#### 2. Start the production server:
+
+```bash
+yarn start
+# or
+npm start
 ```
