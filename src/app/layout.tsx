@@ -6,6 +6,9 @@ import "../styles/globals.css";
 export const metadata: Metadata = {
   title: "Link Sharing App",
   description: "Link sharing app - Devlinks",
+  openGraph: {
+    images: ["/images/og.png"],
+  },
 };
 
 export default function RootLayout({
