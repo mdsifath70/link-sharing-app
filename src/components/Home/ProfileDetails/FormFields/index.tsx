@@ -58,7 +58,7 @@ export default function FormFields({ form }: Props) {
                     </FormControl>
                   </div>
                 </div>
-                <div className="ml-auto w-3/5">
+                <div className="md:ml-auto md:w-3/5">
                   <FormMessage />
                 </div>
               </FormItem>
@@ -86,7 +86,7 @@ export default function FormFields({ form }: Props) {
                     </FormControl>
                   </div>
                 </div>
-                <div className="ml-auto w-3/5">
+                <div className="md:ml-auto md:w-3/5">
                   <FormMessage />
                 </div>
               </FormItem>
@@ -114,7 +114,7 @@ export default function FormFields({ form }: Props) {
                     </FormControl>
                   </div>
                 </div>
-                <div className="ml-auto w-3/5">
+                <div className="md:ml-auto md:w-3/5">
                   <FormMessage />
                 </div>
               </FormItem>
@@ -142,7 +142,7 @@ export default function FormFields({ form }: Props) {
                     </FormControl>
                   </div>
                 </div>
-                <div className="ml-auto w-3/5">
+                <div className="md:ml-auto md:w-3/5">
                   <FormMessage />
                 </div>
               </FormItem>
