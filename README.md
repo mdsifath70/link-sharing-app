@@ -11,6 +11,8 @@ git clone https://github.com/mdsifath70/link-sharing-app.git
 #### 2. install dependencies:
 
 ```bash
+yarn
+# or
 yarn install
 # or
 npm install
