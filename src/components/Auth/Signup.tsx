@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -9,14 +10,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-
-import { Button } from "@/components/ui/button";
 import { responses } from "@/libs/api";
 import { useSignupMutation } from "@/redux/features/auth/authApiSlice";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { KeyIcon, MailIcon } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { z } from "zod";
 import AuthBox from "./Layouts/AuthBox";
@@ -80,7 +80,11 @@ export default function Signup() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="eg: john@example.com" {...field} />
+                    <Input
+                      placeholder="eg: john@example.com"
+                      iconLeft={<MailIcon className="h-5 w-5" />}
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -96,6 +100,7 @@ export default function Signup() {
                     <Input
                       type="password"
                       placeholder="************"
+                      iconLeft={<KeyIcon className="h-5 w-5" />}
                       {...field}
                     />
                   </FormControl>
@@ -113,6 +118,7 @@ export default function Signup() {
                     <Input
                       type="password"
                       placeholder="************"
+                      iconLeft={<KeyIcon className="h-5 w-5" />}
                       {...field}
                     />
                   </FormControl>

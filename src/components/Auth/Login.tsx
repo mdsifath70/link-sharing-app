@@ -14,6 +14,7 @@ import { useForm } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
 import { responses } from "@/libs/api";
+import { KeyIcon, MailIcon } from "lucide-react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -77,7 +78,11 @@ export default function Login() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="eg: john@example.com" {...field} />
+                    <Input
+                      placeholder="eg: john@example.com"
+                      iconLeft={<MailIcon className="h-5 w-5" />}
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -93,6 +98,7 @@ export default function Login() {
                     <Input
                       type="password"
                       placeholder="************"
+                      iconLeft={<KeyIcon className="h-5 w-5" />}
                       {...field}
                     />
                   </FormControl>
